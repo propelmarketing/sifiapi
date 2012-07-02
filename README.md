@@ -1,4 +1,4 @@
-# Sifiapi
+# SifiApi
 
 Offers a simple way to interact with the Simpli.fi API via Ruby.
 
