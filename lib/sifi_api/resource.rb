@@ -8,6 +8,7 @@ class SifiApi::Resource
     @connection = connection
     @user_key = user_key
     @cache = {}
+    @paging = false
   end
 
   def raw_json
@@ -31,6 +32,7 @@ class SifiApi::Resource
       resource_name = resource.to_s.pluralize
       response = @connection.post(@user_key, self.resource + "/#{resource_name}", params)
       if response && response.body
+        handle_response
         record = response.body[resource_name].first
         SifiApi.const_get(resource.to_s.classify).new(record, @connection, @user_key)
       end
@@ -71,7 +73,7 @@ class SifiApi::Resource
         a << resource
       end
     end
-    a
+    SifiApi::ResourceCollection.new(resource_name, a, response.body["paging"], connection, user_key)
   end
 
   def method_missing(sym, *args, &block)
@@ -133,6 +135,7 @@ class SifiApi::Resource
           @json[name].each do |record|
             records << SifiApi.const_get(name.classify).new(record, @connection, @user_key)
           end
+          records = SifiApi::ResourceCollection.new(name, records, nil, @connection, @user_key)
         else
           records = SifiApi.const_get(name.classify).get_via_uri(@connection, @user_key, uri, params)
         end
