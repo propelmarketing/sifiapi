@@ -36,6 +36,7 @@ module SifiApi
   autoload :ReportAsset, "sifi_api/report_asset"
   autoload :ReportType, "sifi_api/report_type"
   autoload :Resource, "sifi_api/resource"
+  autoload :SegmentTag, "sifi_api/segment_tag"
   autoload :User, "sifi_api/user"
   autoload :VERSION, "sifi_api/version"
 end
