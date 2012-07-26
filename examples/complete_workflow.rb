@@ -33,7 +33,15 @@ search_campaign_settings = {
   :bid_type_id => 1,
   :bid => 5.00,
   :daily_budget => 500.00,
-  :dayparting_ids => [1,2],
+  :week_dayparting => [
+    [0,1,2,3],
+    [0,1,2,3],
+    [0,1,2,3],
+    [0,1,2,3],
+    [0,1,2,3],
+    [0,1,23],
+    [0,1,23]
+  ],
   :browser_ids => [601,604],
   :device_ids => [701],
   :operating_system_ids => [801],
@@ -49,7 +57,7 @@ search_campaign_settings = {
 search_campaign.update(search_campaign_settings)
 
 # reload the campaign and include the nested resources
-puts search_campaign.reload(:include => "daypartings,browsers,devices,operating_systems,context_ids,branded_data").inspect
+puts search_campaign.reload(:include => "browsers,devices,operating_systems,context_ids,branded_data").inspect
 
 
 # setup an ad

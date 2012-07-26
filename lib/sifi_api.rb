@@ -21,7 +21,6 @@ module SifiApi
   autoload :Company, "sifi_api/company"
   autoload :Connection, "sifi_api/connection"
   autoload :Context, "sifi_api/context"
-  autoload :Dayparting, "sifi_api/dayparting"
   autoload :Device, "sifi_api/device"
   autoload :Dma, "sifi_api/dma"
   autoload :Domain, "sifi_api/domain"
