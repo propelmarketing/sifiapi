@@ -90,13 +90,13 @@ class SifiApi::Resource
     end
   end
 
-
   def do_action(action)
     execute_with_rescue do
       response = @connection.send(action["method"].downcase, @user_key, action["href"])
       if response && response.status == 200
-        if response[:content_type] == "application/json"
+        if response[:content_type].include?("application/json")
           @json = response.body[resource_name].first
+          return self
         elsif ["text/csv", "application/zip"].include?(response[:content_type])
           filename = response.headers[:content_disposition].match(/filename="(.+)"/)[1]
           file = Tempfile.new(filename)
