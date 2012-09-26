@@ -72,8 +72,8 @@ class SifiApi::Resource
         resource = self.new(record, connection, user_key)
         a << resource
       end
+      SifiApi::ResourceCollection.new(resource_name, a, response.body["paging"], connection, user_key)
     end
-    SifiApi::ResourceCollection.new(resource_name, a, response.body["paging"], connection, user_key)
   end
 
   def method_missing(sym, *args, &block)
