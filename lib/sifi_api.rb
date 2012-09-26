@@ -11,7 +11,6 @@ module SifiApi
   autoload :AdFileType, "sifi_api/ad_file_type"
   autoload :AdSize, "sifi_api/ad_size"
   autoload :BidType, "sifi_api/bid_type"
-  autoload :BrandedDatum, "sifi_api/branded_datum"
   autoload :Browser, "sifi_api/browser"
   autoload :Campaign, "sifi_api/campaign"
   autoload :CampaignStat, "sifi_api/campaign_stat"
