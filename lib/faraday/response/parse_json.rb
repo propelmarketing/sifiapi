@@ -4,7 +4,7 @@ module Faraday
 
     def call(env)
       @app.call(env).on_complete do
-        if env[:response_headers]["content-type"].include?("application/json")
+        if (env[:response_headers]["content-type"] || "").include?("application/json")
           env[:body] = convert_to_json(env[:body])
         end
       end

@@ -32,7 +32,6 @@ class SifiApi::Resource
       resource_name = resource.to_s.pluralize
       response = @connection.post(@user_key, self.resource + "/#{resource_name}", params)
       if response && response.body
-        handle_response
         record = response.body[resource_name].first
         SifiApi.const_get(resource.to_s.classify).new(record, @connection, @user_key)
       end
@@ -94,7 +93,7 @@ class SifiApi::Resource
     execute_with_rescue do
       response = @connection.send(action["method"].downcase, @user_key, action["href"])
       if response && response.status == 200
-        if response[:content_type].include?("application/json")
+        if (response[:content_type] || "").include?("application/json")
           @json = response.body[resource_name].first
           return self
         elsif ["text/csv", "application/zip"].include?(response[:content_type])
