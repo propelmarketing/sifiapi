@@ -27,6 +27,7 @@ module SifiApi
   autoload :IpRange, "sifi_api/ip_range"
   autoload :Keyword, "sifi_api/keyword"
   autoload :KeywordCategory, "sifi_api/keyword_category"
+  autoload :MetroCode, "sifi_api/metro_code"
   autoload :OperatingSystem, "sifi_api/operating_system"
   autoload :Recency, "sifi_api/recency"
   autoload :RecurringReport, "sifi_api/recurring_report"
