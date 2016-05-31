@@ -17,6 +17,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'faraday', '~> 0.7.6'
   gem.add_dependency 'multi_json', '~> 1.0.3'
-  gem.add_dependency 'activesupport', '~> 3.0.10'
+  gem.add_dependency 'activesupport', '~> 4.2.6'
   gem.add_dependency 'i18n', '~> 0.5.0'
 end
