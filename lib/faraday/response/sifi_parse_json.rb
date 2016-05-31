@@ -1,5 +1,5 @@
 module Faraday
-  class Response::ParseJson < Faraday::Middleware
+  class Response::SifiParseJson < Faraday::Middleware
     dependency 'multi_json'
 
     def call(env)

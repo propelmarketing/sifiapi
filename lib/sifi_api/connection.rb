@@ -13,7 +13,7 @@ class SifiApi::Connection
       builder.use Faraday::Request::JsonEncode
 
       builder.use Faraday::Response::RaiseSifiError
-      builder.use Faraday::Response::ParseJson
+      builder.use Faraday::Response::SifiParseJson
 
       builder.adapter Faraday.default_adapter
     end
