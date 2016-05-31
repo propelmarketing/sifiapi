@@ -1,7 +1,7 @@
 require 'faraday/request/convert_file_to_upload_io'
 require 'faraday/request/json_encode'
 require 'faraday/response/raise_sifi_error'
-require 'faraday/response/parse_json'
+require 'faraday/response/sifi_parse_json'
 
 class SifiApi::Connection
   def initialize(app_key, site="https://app.simpli.fi/api/")
