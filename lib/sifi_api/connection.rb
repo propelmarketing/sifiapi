@@ -8,6 +8,9 @@ class SifiApi::Connection
     @site = site
     @app_key = app_key
     @connection = Faraday::Connection.new(:url => site, :ssl => { :verify => false }) do |builder|
+      builder.options[:open_timeout] = 300
+      builder.options[:timeout] = 300
+
       builder.use Faraday::Request::ConvertFileToUploadIO
       builder.request  :multipart
       builder.use Faraday::Request::JsonEncode
